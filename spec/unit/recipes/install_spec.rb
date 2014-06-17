@@ -7,7 +7,7 @@ describe 'ice_nginx::install' do
     expect(chef_run).to install_package('nginx')
   end
 
-  it 'starts and enables the service' do
-    expect(chef_run).to do_nothing
+  it 'should create configuration directory' do
+    expect(chef_run).to create_directory("#{node['nginx']['dir']}")
   end
 end

@@ -47,8 +47,3 @@ unless node['nginx']['keep_default_conf']
     action :delete
   end
 end
-
-service 'nginx' do
-  supports status: true, restart: true, reload: true
-  action [:nothing]
-end

@@ -2,14 +2,15 @@
 
 Installs nginx from a local yum repository.
 
-
+TODO: add documentation
 
 Build RPM from source
 =====================
 
-The following code snippet creates an RPM from sourcefiles:
+The following code snippet creates an RPM from sourcefiles (This should be automated in a Jenkins job!):
 
-'''
+
+```
 	cd ~/
 	sudo yum -y install gcc mysql-devel ruby-devel rubygems
 	sudo yum install rpmdevtools rpmlint
@@ -27,7 +28,7 @@ The following code snippet creates an RPM from sourcefiles:
 	scp nginx-1.6.0-1.x86_64.rpm root@om01.ice.local:/var/www/html/yum/icerepo/OL6/x86_64/getPackage
 
 	// On the RPM repository: createrepo /var/www/html/yum/icerepo/OL6/x86_64/
-'''
+```
 
 echo -e '#!/bin.sh\nrm /usr/sbin/nginx' > ~/after-remove.sh
 

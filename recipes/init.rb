@@ -12,6 +12,9 @@ template '/etc/init.d/nginx' do
   group 'root'
   mode '0755'
   source 'init.erb'
-  notifies :enable, 'service[nginx]'
-  notifies :start, 'service[nginx]'
+end
+
+service 'nginx' do
+  supports status: true, restart: true, reload: true
+  action [:enable, :start]
 end
