@@ -2,6 +2,7 @@
 
 user <%= node['nginx']['conf']['worker_user'] -%> <%= node['nginx']['conf']['worker_group'] -%>;
 <%= node['nginx']['conf']['worker_processes'] ? "worker_processes #{node['nginx']['conf']['worker_processes']};" : '' -%>
+
 error_log <%= node['nginx']['conf']['error_log'] -%>;
 pid <%= node['nginx']['conf']['pid_file'] -%>;
 <%= node['nginx']['conf']['worker_rlimit_nofile'] ? "worker_rlimit_nofile #{node['nginx']['conf']['worker_rlimit_nofile']};" : '' -%>

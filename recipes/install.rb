@@ -3,9 +3,7 @@
 # Author : Niels Krijger
 #
 
-if node['nginx']['ice_localrepo']
-	include_recipe "ice_localrepo::default"
-end
+include_recipe 'ice_localrepo::default' if node['nginx']['ice_localrepo']
 
 package node['nginx']['package_name']
 
@@ -48,4 +46,9 @@ unless node['nginx']['keep_default_conf']
   file node['nginx']['conf']['conf.d'] + '/default.conf' do
     action :delete
   end
+end
+
+service 'nginx' do
+  supports status: true, restart: true, reload: true
+  action [:nothing]
 end
