@@ -1,5 +1,19 @@
 Testing
 =======
+
+Bundler
+-------
+
+You need to install bundler before running the tests:
+
+	gem install bundler
+
+Afterwards, running the following will install all dependencies defined in the Gemfile:
+
+	bundle install
+
+Testing
+-------
 The Rakefile contains a number of tasks that can be run individually or in groups. The default "rake" command will perform style
 checks with Rubocop and Foodcritic, ChefSpec with rspec, and integration with Test Kitchen using the Vagrant driver. 
 

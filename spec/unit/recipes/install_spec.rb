@@ -28,10 +28,10 @@ describe 'ice_nginx::install' do
   end
 
   it 'should create an error log file' do
-  	expect(chef_run).to render_file('/var/log/nginx/error.log')
+    expect(chef_run).to render_file('/var/log/nginx/error.log')
   end
 
   it 'should delete the default config file' do
-  	expect(chef_run).to delete_file('/usr/local/nginx/conf.d/default.conf')
+    expect(chef_run).to delete_file('/usr/local/nginx/conf.d/default.conf')
   end
 end

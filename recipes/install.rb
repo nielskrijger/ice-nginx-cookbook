@@ -43,8 +43,6 @@ files.each do |logfile|
   end
 end
 
-unless node['nginx']['keep_default_conf']
-  file node['nginx']['conf']['conf.d'] + '/default.conf' do
-    action :delete
-  end
-end
+file node['nginx']['conf']['conf.d'] + '/default.conf' do
+  action :delete
+end unless node['nginx']['keep_default_conf']
