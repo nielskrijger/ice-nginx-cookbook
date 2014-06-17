@@ -13,7 +13,8 @@ package node['nginx']['package_name']
 
 directories = [File.dirname(node['nginx']['conf_file']),
                node['nginx']['conf']['conf.d'],
-               node['nginx']['conf']['sites_enabled']]
+               node['nginx']['conf']['sites_enabled'],
+               node['nginx']['conf']['sites_available']]
 directories.each do |dir|
   directory dir do
     action :create

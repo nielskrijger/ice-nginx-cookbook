@@ -25,3 +25,4 @@ default['nginx']['conf']['sendfile'] = 'on'
 default['nginx']['conf']['keepalive_timeout'] = 65
 default['nginx']['conf']['conf.d'] = "#{node['nginx']['dir']}/conf.d"
 default['nginx']['conf']['sites_enabled'] = '/etc/nginx/sites-enabled'
+default['nginx']['conf']['sites_available'] = '/etc/nginx/sites-available'
