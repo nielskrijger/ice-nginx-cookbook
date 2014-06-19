@@ -1,2 +1,4 @@
 *.lock
 .kitchen/
+.DS_Store
+tmp/

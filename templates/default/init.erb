@@ -21,7 +21,7 @@
  
 nginx="<%= node['nginx']['binary'] %>"
 prog=$(basename $nginx)
- 
+
 NGINX_CONF_FILE="<%= node['nginx']['conf_file'] %>"
  
 [ -f /etc/sysconfig/nginx ] && . /etc/sysconfig/nginx
