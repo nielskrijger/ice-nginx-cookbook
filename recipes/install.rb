@@ -3,18 +3,18 @@
 # Author : Niels Krijger
 #
 
-include_recipe 'ice_localrepo::default' if node['nginx']['ice_localrepo']
+include_recipe 'ice_localrepo::default' if node['ice_nginx']['ice_localrepo']
 
-package node['nginx']['package_name']
+package node['ice_nginx']['package_name']
 
 #
 # Create directories
 #
 
-directories = [File.dirname(node['nginx']['conf_file']),
-               node['nginx']['conf']['conf.d'],
-               node['nginx']['conf']['sites_enabled'],
-               node['nginx']['conf']['sites_available']]
+directories = [File.dirname(node['ice_nginx']['conf_file']),
+               node['ice_nginx']['conf']['conf.d'],
+               node['ice_nginx']['conf']['sites_enabled'],
+               node['ice_nginx']['conf']['sites_available']]
 directories.each do |dir|
   directory dir do
     action :create
@@ -25,24 +25,24 @@ directories.each do |dir|
   end
 end
 
-directory File.dirname(node['nginx']['conf']['error_log']) do
+directory File.dirname(node['ice_nginx']['conf']['error_log']) do
   action :create
   recursive true
-  owner node['nginx']['user']
-  group node['nginx']['group']
+  owner node['ice_nginx']['user']
+  group node['ice_nginx']['group']
   mode '0755'
 end
 
-files = [node['nginx']['conf']['error_log']]
+files = [node['ice_nginx']['conf']['error_log']]
 files.each do |logfile|
   file logfile do
-    owner node['nginx']['user']
-    group node['nginx']['group']
+    owner node['ice_nginx']['user']
+    group node['ice_nginx']['group']
     mode '0755'
     action :create_if_missing
   end
 end
 
-file node['nginx']['conf']['conf.d'] + '/default.conf' do
+file node['ice_nginx']['conf']['conf.d'] + '/default.conf' do
   action :delete
-end unless node['nginx']['keep_default_conf']
+end unless node['ice_nginx']['keep_default_conf']

@@ -3,27 +3,27 @@
 # Author : Niels Krijger
 #
 
-group node['nginx']['group'] do
+group node['ice_nginx']['group'] do
   system true
-  gid node['nginx']['gid']
+  gid node['ice_nginx']['gid']
 end
 
-user node['nginx']['user'] do
-  group node['nginx']['group']
-  home node['nginx']['homedir']
+user node['ice_nginx']['user'] do
+  group node['ice_nginx']['group']
+  home node['ice_nginx']['homedir']
   system true
   action :create
   manage_home true
-  uid node['nginx']['uid']
+  uid node['ice_nginx']['uid']
 end
 
-group node['nginx']['conf']['worker_group'] do
+group node['ice_nginx']['conf']['worker_group'] do
   system true
 end
 
-user node['nginx']['conf']['worker_user'] do
-  group node['nginx']['conf']['worker_group']
-  home node['nginx']['conf']['worker_homedir']
+user node['ice_nginx']['conf']['worker_user'] do
+  group node['ice_nginx']['conf']['worker_group']
+  home node['ice_nginx']['conf']['worker_homedir']
   system true
   action :create
   manage_home true

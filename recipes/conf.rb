@@ -3,7 +3,7 @@
 # Author : Niels Krijger
 #
 
-template node['nginx']['conf_file'] do
+template node['ice_nginx']['conf_file'] do
   owner 'root'
   group 'root'
   mode '0644'
