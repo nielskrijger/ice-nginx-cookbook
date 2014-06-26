@@ -12,8 +12,8 @@ The following code snippet creates an RPM from sourcefiles (This should be autom
 
 ```
 	cd ~/
-	sudo yum -y install gcc mysql-devel ruby-devel rubygems
-	sudo yum install rpmdevtools rpmlint
+	sudo yum -y install ruby-devel rubygems
+	sudo yum -y install rpmdevtools rpmlintsudo yum install rpmdevtools rpmlint
 	sudo gem install fpm
 	wget http://nginx.org/download/nginx-1.6.0.tar.gz
 	tar -xzvf nginx-1.6.0.tar.gz
