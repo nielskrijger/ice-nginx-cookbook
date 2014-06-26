@@ -3,8 +3,6 @@
 # Author : Niels Krijger
 #
 
-include_recipe 'ice_localrepo::default' if node['ice_nginx']['ice_localrepo']
-
 package node['ice_nginx']['package_name']
 
 #

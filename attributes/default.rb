@@ -8,7 +8,6 @@ default['ice_nginx']['binary'] = '/usr/sbin/nginx'
 default['ice_nginx']['dir'] = '/usr/local/nginx'
 default['ice_nginx']['log_dir'] = '/var/log/nginx'
 default['ice_nginx']['conf_file'] = '/etc/nginx/nginx.conf'
-default['ice_nginx']['ice_localrepo'] = true
 default['ice_nginx']['package_name'] = 'nginx'
 
 default['ice_nginx']['conf']['worker_user'] = 'www-data'
