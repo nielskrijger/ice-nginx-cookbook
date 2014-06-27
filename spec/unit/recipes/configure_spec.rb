@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ice_nginx::conf' do
+describe 'ice_nginx::configure' do
   let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
 
   it 'should create an init.d config file' do

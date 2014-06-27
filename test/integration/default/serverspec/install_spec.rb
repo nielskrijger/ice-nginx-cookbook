@@ -1,14 +1,18 @@
 require 'spec_helper'
 
-describe 'Nginx Server' do
+describe 'Install' do
 
   describe package('nginx') do
     it { should be_installed }
   end
 
-  describe service('nginx') do
-    it { should be_enabled }
-    it { should be_running }
+  describe user('root') do
+    it { should exist }
+  end
+
+  describe file('/var/log/nginx') do
+    it { should be_directory }
+    it { should be_owned_by 'nginx' }
   end
 
 end
