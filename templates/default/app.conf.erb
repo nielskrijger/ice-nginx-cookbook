@@ -1,0 +1,22 @@
+#
+# GENERATED USING CHEF, DO NOT EDIT MANUALLY
+#
+# Nginx proxy for <%= @name %>
+#
+server {
+
+  listen <%= @nginx.port %>;
+
+  server_name <%= @nginx.server_name %>;
+
+  access_log <%= @nginx.access_log %>;
+  error_log <%= @nginx.error_log %> warn;
+
+  <% for location in nginx.locations %>
+  location <%= location.path %> {
+    <% locations.config.each_pair do |key, value| %>
+        <%= key %> <%= value %>;
+    <% end %>
+  }
+  <% end %>
+}
