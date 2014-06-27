@@ -12,13 +12,13 @@ events {
 }
 
 http {
-    <% node['ice_nginx']['conf']['include'].each do |include| %>
+    <% node['ice_nginx']['conf']['includes'].each do |include| %>
     <%= "include #{include};" %>
     <% end %>
     <%= node['ice_nginx']['conf']['default_type'] ? "default_type #{node['ice_nginx']['conf']['default_type']};" : '' %>
     <%= node['ice_nginx']['conf']['sendfile'] ? "sendfile #{node['ice_nginx']['conf']['sendfile']};" : '' %>
     <%= node['ice_nginx']['conf']['keepalive_timeout'] ? "keepalive_timeout #{node['ice_nginx']['conf']['keepalive_timeout']};" : '' %>
 
-  include <%= node['ice_nginx']['conf']['conf.d'] %>/*.conf;
+  include <%= node['ice_nginx']['conf']['conf_files_mask'] %>;
   include <%= node['ice_nginx']['conf']['sites_enabled'] %>/*;
 }

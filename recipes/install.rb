@@ -10,9 +10,10 @@ package node['ice_nginx']['package_name']
 #
 
 directories = [File.dirname(node['ice_nginx']['conf_file']),
-               node['ice_nginx']['conf']['conf.d'],
+               File.dirname(node['ice_nginx']['conf']['conf_files_mask']),
                node['ice_nginx']['conf']['sites_enabled'],
                node['ice_nginx']['conf']['sites_available']]
+
 directories.each do |dir|
   directory dir do
     action :create
@@ -41,6 +42,6 @@ files.each do |logfile|
   end
 end
 
-file node['ice_nginx']['conf']['conf.d'] + '/default.conf' do
+file node['ice_nginx']['conf_dir'] + '/default.conf' do
   action :delete
 end unless node['ice_nginx']['keep_default_conf']
