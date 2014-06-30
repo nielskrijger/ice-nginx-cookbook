@@ -10,6 +10,7 @@ action :create do
   end
 
   template "#{node['ice_nginx']['conf']['sites_available']}/#{new_resource.name}.conf" do
+    cookbook 'nginx'
     owner 'root'
     group 'root'
     mode '0644'
