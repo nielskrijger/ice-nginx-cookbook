@@ -14,10 +14,6 @@ action :create do
     group 'root'
     mode '0644'
     source 'app.conf.erb'
-    variables(
-        name: new_resource.name,
-        port: new_resource.port
-    )
     notifies :reload, 'service[nginx]', :delayed
   end
 

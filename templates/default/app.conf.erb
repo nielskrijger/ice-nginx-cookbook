@@ -1,13 +1,13 @@
 #
 # GENERATED USING CHEF, DO NOT EDIT MANUALLY
 #
-# Nginx proxy for <%= @name %>
+# Nginx proxy for <%= @resource.name %>
 #
 server {
 
-  listen <%= @nginx.port %>;
+  listen <%= @resource.port %>;
 
-  server_name <%= @nginx.server_name %>;
+  server_name <%= @resource.server_name.is_a?(Array) ? @resource.server_name.join(' ') : @resource.server_name %>;
 
   access_log <%= @nginx.access_log %>;
   error_log <%= @nginx.error_log %> warn;
