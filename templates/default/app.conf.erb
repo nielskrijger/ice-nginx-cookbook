@@ -11,7 +11,7 @@ server {
 
   access_log <%= @access_log %> main;
 
-  <% for location in nginx.locations %>
+  <% for location in new_resource.locations %>
   location <%= location.path %> {
     <% locations.config.each_pair do |key, value| %>
         <%= key %> <%= value %>;
