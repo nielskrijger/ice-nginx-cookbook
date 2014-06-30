@@ -16,7 +16,7 @@ action :create do
     mode '0644'
     source 'app.conf.erb'
     variables(
-        name: new_resource.name
+        resource: new_resource
     )
     notifies :reload, 'service[nginx]', :delayed
   end
