@@ -9,8 +9,7 @@ server {
 
   server_name <%= @resource.server_name.is_a?(Array) ? @resource.server_name.join(' ') : @resource.server_name %>;
 
-  access_log <%= @nginx.access_log %>;
-  error_log <%= @nginx.error_log %> warn;
+  access_log <%= @nginx.access_log %> main;
 
   <% for location in nginx.locations %>
   location <%= location.path %> {

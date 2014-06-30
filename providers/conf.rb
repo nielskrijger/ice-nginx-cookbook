@@ -16,7 +16,8 @@ action :create do
     mode '0644'
     source 'app.conf.erb'
     variables(
-        resource: new_resource
+        resource: new_resource,
+        access_log: "#{node['ice_nginx']['log_dir']}/#{new_resource.name}.access.log"
     )
     notifies :reload, 'service[nginx]', :delayed
   end
